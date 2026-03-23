@@ -42,6 +42,7 @@ from app.schemas.common import (
     UserFilterParams,
 )
 from app.schemas.permission import (
+    PermissionAssignRequest,
     PermissionBase,
     PermissionCheckRequest,
     PermissionCheckResponse,
@@ -126,4 +127,8 @@ __all__ = [
     "PermissionUpdate",
     "PermissionResponse",
     "PermissionInDB",
-    "PermissionListResponse"PermissionCheckRequest"PermissionCheckResponse"]
+    "PermissionListResponse",
+    "PermissionCheckRequest",
+    "PermissionCheckResponse",
+    "PermissionAssignRequest",
+]

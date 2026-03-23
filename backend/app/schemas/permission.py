@@ -3,6 +3,8 @@
 This module defines schemas for permission-related operations.
 """
 
+import uuid
+
 from pydantic import Field, field_validator
 
 from app.schemas.base import BaseCreateSchema, BaseInDBSchema, BaseResponse
@@ -116,3 +118,13 @@ class PermissionCheckResponse(BaseResponse):
     has_permission: bool = Field(..., description="Whether the user has the permission")
     resource: str = Field(..., description="Resource checked")
     action: str = Field(..., description="Action checked")
+
+
+class PermissionAssignRequest(BaseCreateSchema):
+    """Schema for assigning permissions to a role."""
+
+    permission_ids: list[uuid.UUID] = Field(
+        ...,
+        description="List of permission IDs to assign",
+        min_length=1,
+    )
